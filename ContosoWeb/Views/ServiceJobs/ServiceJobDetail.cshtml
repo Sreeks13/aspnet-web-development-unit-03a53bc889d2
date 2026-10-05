@@ -1,0 +1,13 @@
+@model ContosoWeb.Models.ServiceJob
+
+<h2>@Model.Make - @Model.ServiceType</h2>
+
+<p><strong>Job ID:</strong> @Model.Id</p>
+<p><strong>Description:</strong> @Model.Description</p>
+
+<a href="@Url.Action(
+    "ServiceJobsByMake",
+    "ServiceJobs",
+    new { make = Model.Make })">
+    Back to service jobs
+</a>
