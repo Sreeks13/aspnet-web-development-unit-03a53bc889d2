@@ -1,0 +1,22 @@
+@model IEnumerable<IGrouping<string, ContosoWeb.Models.ServiceJob>>
+
+<h2>Service Jobs for @ViewBag.Make</h2>
+
+@foreach (var group in Model)
+{
+    <h3>@group.Key</h3>
+
+    <ul>
+        @foreach (var job in group)
+        {
+            <li>
+                <a href="@Url.Action(
+                    "ServiceJobDetails",
+                    "ServiceJobs",
+                    new { make = job.Make, id = job.Id })">
+                    @job.Description
+                </a>
+            </li>
+        }
+    </ul>
+}
